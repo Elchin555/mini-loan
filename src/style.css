@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.btn {
+    @apply bg-btn-enabled;
+  }
+  
+  .btn:hover {
+    @apply bg-btn-hovered;
+  }
+  
+  .btn:focus {
+    @apply bg-btn-focused;
+  }
+  
+  .btn:active {
+    @apply bg-btn-pressed;
+  }
+  
+  .btn:disabled {
+    @apply bg-btn-disabled cursor-not-allowed;
+  }
