@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <div 
-    class="flex flex-col gap-6 md:flex-row md:rounded-[20px] bg-green-100 mx-auto custom-shadow"
+    class="flex flex-col gap-6 md:flex-row md:rounded-[20px]  mx-auto custom-shadow"
     :class="[result.isPositive ? 'max-w-[1200px] min-h-[400px] lg:min-h-[550px]' : 'max-w-[800px] min-h-[500px]']"
   >
     <div v-if="result.isPositive" class="md:basis-1/2">
