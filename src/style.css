@@ -1,22 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+html { 
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-secondary-bg
+}
+
+.font-bitter {
+  font-family: "Bitter", serif;
+}
+
 .btn {
-    @apply bg-btn-enabled;
-  }
-  
-  .btn:hover {
-    @apply bg-btn-hovered;
-  }
-  
-  .btn:focus {
-    @apply bg-btn-focused;
-  }
-  
-  .btn:active {
-    @apply bg-btn-pressed;
-  }
-  
-  .btn:disabled {
-    @apply bg-btn-disabled cursor-not-allowed;
-  }
+  @apply px-6 py-3 rounded-full bg-btn-enabled hover:bg-btn-hovered focus:bg-btn-focused active:bg-btn-pressed disabled:bg-btn-disabled disabled:text-[#DEDEDE] disabled:cursor-not-allowed duration-150 ease-out
+}

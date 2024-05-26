@@ -7,7 +7,7 @@ defineProps({
 
 <template>
   <div 
-    class="flex flex-col gap-6 md:flex-row md:rounded-[20px]  mx-auto custom-shadow"
+    class="flex flex-col gap-6 md:flex-row md:rounded-[20px] bg-white mx-auto md:custom-shadow"
     :class="[result.isPositive ? 'max-w-[1200px] min-h-[400px] lg:min-h-[550px]' : 'max-w-[800px] min-h-[500px]']"
   >
     <div v-if="result.isPositive" class="md:basis-1/2">
@@ -36,12 +36,6 @@ defineProps({
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&display=swap');
-
-.font-bitter {
-  font-family: "Bitter", serif;
-}
-
 .custom-shadow {
   box-shadow: 0px 0px 40px 0px #0000000A;
 }
