@@ -1,33 +1,43 @@
 <script setup>
 import ResultCard from '@/components/ResultCard.vue';
+import {useLoanStore} from "@/stores/loanStore"
 
-const user = {
-  firstName: "Anna",
-  lastName: 'Ivanovna',
-  mobileNumber: '557778899',
-  emailAddress: 'aaaa@mail.com',
-  monthlyIncome: 600
+const loanStore=useLoanStore()
+
+const userLoanInfo = {
+   amount:loanStore.loanDetails.amount || null,
+   period:loanStore.loanDetails.period || null,
+   monthlyPayment:loanStore.loanDetails.monthlyPayment || null
 }
 
 const result = {
   message: {
-    label: `Dear, ${user.firstName}`,
-    description: 'Unfortunately, your loan was denied.',
+    label: 'Good news!',
+    description: 'Your loan has been approved',
   },
   link: {
     name: 'home',
-    label: 'Exit'
+    label: 'Back to home page'
   },
-  isPositive: false
+  isPositive: true
 }
 </script>
 
 <template>
-  <div class="p-4">
+  <div class="p-4 bg-[#FBFBF9]">
     <ResultCard :result="result">
-      <p class="py-3 text-center opacity-75">
-        In addition to your income and expenses, a number of other factors play a role in loan decisions.
-      </p>
+      <div class="py-3 grid grid-cols-3">
+        <p class="col-span-2">Loan amount</p>
+        <p>{{ userLoanInfo?.amount }} €</p>
+      </div>
+      <div class="py-3 grid grid-cols-3">
+        <p class="col-span-2">Loan period</p>
+        <p>{{ userLoanInfo?.period }} months</p>
+      </div>
+      <div class="py-3 grid grid-cols-3">
+        <p class="col-span-2">Monthly Payment</p>
+        <p>{{ userLoanInfo?.monthlyPayment }} €</p>
+      </div>
     </ResultCard>
   </div>
 </template>

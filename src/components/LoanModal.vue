@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import * as Yup from 'yup';
+import {useLoanStore} from "@/stores/loanStore"
+
+const loanStore=useLoanStore()
 
 const form = ref({
   firstName: '',
@@ -40,6 +43,7 @@ const handleSubmit = () => {
   schema.validate(form.value, { abortEarly: false })
     .then(() => {
       // Form is valid, you can proceed with submission
+      loanStore.checkForm(form.value)
       console.log('Form is valid');
     })
     .catch((validationErrors) => {
@@ -56,7 +60,7 @@ const handleSubmit = () => {
         <div class="w-1/2 flex flex-col bg-white rounded-[30px] p-12 space-y-6">
           <div class="flex items-center justify-between">
             <h3 class="text-xl">Personal details</h3>
-            <button>
+            <button @click="loanStore.showLoanModal=false">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 1L13 13M13 1L1 13" stroke="#21093A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
