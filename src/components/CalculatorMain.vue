@@ -54,7 +54,7 @@ const loanCalculate=()=>{
 </script>
 
 <template>
-  <div class="flex flex-col space-y-10">
+  <div class="flex flex-col gap-10 w-full">
     <!-- Input for Amount -->
     <div class="flex flex-col md:flex-row  space-y-4 md:space-y-0 md:space-x-6">
       <div class="w-full md:w-2/3 flex flex-col space-y-2">
@@ -88,11 +88,16 @@ const loanCalculate=()=>{
     </div>
 
     <!-- Monthly Payment Section -->
-    <div class="flex flex-col items-center justify-center space-y-4">
-      <span>Monthly payment</span>
-      <span class="text-3xl md:text-7xl">{{ monthlyPayment }}€</span>
-      <button class="px-5 py-3 rounded-full bg-[#AA93FF]" @click="loanCalculate">Apply now</button>
-      <p class="text-sm">The calculation is approximate and may differ from the conditions offered to you. Please submit a loan application to receive a personal offer. Financial services are provided by AS Inbank Finance.</p>
+    <div class="flex flex-col gap-6">
+      <div class="flex flex-col gap-2 items-center">
+        <p>Monthly payment</p>
+        <p class="text-4xl md:text-7xl font-bitter">{{ monthlyPayment }}€</p>
+        <button class="btn mt-4" @click="loanCalculate">Apply now</button>
+      </div>
+      <p class="text-[12px] opacity-60">
+        The calculation is approximate and may differ from the conditions offered to you.
+        Please submit a loan application to receive a personal offer. Financial services are provided by AS Inbank Finance.
+      </p>
     </div>
   </div>
 </template>

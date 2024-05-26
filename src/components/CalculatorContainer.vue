@@ -1,16 +1,22 @@
 <script setup>
 import CalculatorMain from "@/components/CalculatorMain.vue";
 
-
 </script>
 
 
 <template>
-   <div class="grid grid-cols-1 md:grid-cols-2 space-y-4 md:space-y-0 p-6 md:p-10 bg-[#E3D2FF]">
-            <div class="w-full md:w-1/2 mx-auto flex flex-col justify-center space-y-3">
-                <h3 class="text-3xl md:text-5xl md:text-center">Calculate your monthly payment</h3>
-                <p class="md:text-center">Estimate your monthly payments based on the chosen loan amount and time period.</p>
-            </div>
-            <calculator-main/>
-        </div>
+  <section 
+    id="calculator-container"
+    class="py-10 px-4 md:py-20 md:px-10 flex flex-col md:flex-row gap-10 bg-primary-bg"
+  >
+    <div class="md:px-10 w-full flex flex-col md:justify-center gap-2 md:gap-4 md:*:text-center font-bitter">
+      <h2 class="text-3xl md:text-5xl lg:text-7xl">
+        Calculate your <br class="md:hidden">
+        <span class="italic">monthly payment</span>
+      </h2>
+      <p>Estimate your monthly payments based on the chosen loan amount and time period.</p>
+    </div>
+    <span id="divider" class="hidden md:block w-[1px] opacity-15 bg-[#21093A]"></span>
+    <CalculatorMain />
+  </section>
 </template>

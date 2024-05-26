@@ -1,13 +1,10 @@
 <template>
-    <div class="fixed top-0 left-0 w-full primary-bg shadow-md z-50">
-      <div class="container mx-auto flex items-center h-16">
-        <img src="../static/logo.svg" alt="Logo" class="h-10 ml-4">
-      </div>
+  <div class="sticky top-0 w-full bg-secondary-bg z-50 shadow-md">
+    <div class="container mx-auto flex items-center h-16">
+      <RouterLink :to="{name: 'home'}">
+        <img src="@/assets/logo.svg" alt="Inbank logo" class="h-10 ml-4">
+      </RouterLink>
     </div>
-  </template>
+  </div>
+</template>
   
-  <script>
-  export default {
-    name: 'TheHeader',
-  };
-  </script>
