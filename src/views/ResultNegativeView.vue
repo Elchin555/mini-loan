@@ -1,12 +1,10 @@
 <script setup>
 import ResultCard from '@/components/ResultCard.vue';
+import {useLoanStore} from "@/stores/loanStore"
 
+const loanStore=useLoanStore()
 const user = {
-  firstName: "Anna",
-  lastName: 'Ivanovna',
-  mobileNumber: '557778899',
-  emailAddress: 'aaaa@mail.com',
-  monthlyIncome: 600
+  firstName: loanStore.userName,
 }
 
 const result = {

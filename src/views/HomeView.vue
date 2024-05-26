@@ -1,9 +1,11 @@
 <script setup>
 import CalculatorContainer from "@/components/CalculatorContainer.vue";
 import LoanModal from "@/components/LoanModal.vue"
+import {useLoanStore} from "@/stores/loanStore"
 import {ref} from "vue"
 const isDisabled=ref(false)
 const showLoanModal=ref(true)
+const loanStore=useLoanStore()
 
 </script>
 <template>
@@ -26,7 +28,7 @@ const showLoanModal=ref(true)
         </div>
       <calculator-container/>
     </div>
-    <LoanModal v-if="showLoanModal"/>
+    <LoanModal v-if="loanStore.showLoanModal"/>
     <!-- <div class=" flex justify-center">
         <button class="btn rounded px-4 py-2" :disabled="isDisabled">Button</button>
     </div> -->
