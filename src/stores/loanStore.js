@@ -1,18 +1,15 @@
-import { defineStore } from 'pinia'
-import {ref,computed} from "vue"
+import { defineStore } from 'pinia';
 import { useRouter } from 'vue-router';
+import {ref} from "vue"
 
 export const useLoanStore = defineStore('loanStore', () => {
   const router = useRouter();
-  const showLoanModal=ref(false)
+  const showLoanModal = ref(false);
   const userName = ref('');
+  const loanDetails = ref({});
+  const formData = ref({}); 
 
-  const loanDetails = ref({})
-  const name = ref('Elchin')
-
-
-  function checkLoanCalculate(amount,period,monthlyPayment) {
-
+  function checkLoanCalculate(amount, period, monthlyPayment) {
     if (!amount || !period || !monthlyPayment) {
       console.log("All fields are required");
       return false;
@@ -23,28 +20,51 @@ export const useLoanStore = defineStore('loanStore', () => {
       period,
       monthlyPayment
     };
-    console.log("loanDetails",loanDetails.value)
+
+    console.log("loanDetails", loanDetails.value);
 
     return true;
   }
+
   function checkForm(form) {
-    showLoanModal.value=false
+    showLoanModal.value = false;
     const { firstName, lastName, email, phoneNumber, monthlyIncome } = form;
 
     if (!firstName || !lastName || !email || !phoneNumber || !monthlyIncome) {
       console.log("All fields are required");
       return false;
     }
+
     userName.value = firstName;
+    formData.value = { 
+      firstName,
+      lastName,
+      email,
+      phoneNumber,
+      monthlyIncome
+    };
 
     if (monthlyIncome < 1000) {
-      router.push('/result/negative');
+    
+      if(router){
+        router.push('/result/negative');
+      }
     } else {
-      router.push('/result/positive');
+      console.log("positive",router)
+      if(router){
+        router.push('/result/positive');
+      }
     }
 
     return true;
   }
 
-  return { showLoanModal, name, checkForm,userName,loanDetails,checkLoanCalculate}
-})
+  return {
+    showLoanModal,
+    userName,
+    loanDetails,
+    formData,
+    checkLoanCalculate,
+    checkForm
+  };
+});

@@ -17,5 +17,103 @@ body {
 }
 
 .btn {
-  @apply px-6 py-3 rounded-full bg-btn-enabled hover:bg-btn-hovered focus:bg-btn-focused active:bg-btn-pressed disabled:bg-btn-disabled disabled:text-[#DEDEDE] disabled:cursor-not-allowed duration-150 ease-out
+  @apply px-6 py-3 rounded-full bg-btn-enabled hover:bg-btn-hovered focus:bg-btn-focused active:bg-btn-pressed disabled:bg-btn-disabled disabled:text-[#9C9C9C] disabled:cursor-not-allowed duration-150 ease-out
+}
+.input {
+  @apply border border-[#DEDEDE] border-solid;
+}
+
+.input:hover {
+  @apply border-[#60378B];
+}
+
+.input:focus {
+  @apply border-2 border-[#60378B];
+}
+.input.error {
+  border-color: #e53e3e;
+}
+select{
+  height: 44px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg width%3D%2214%22%20height%3D%228%22%20viewBox%3D%220%200%2014%208%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M1%200.999512L7%206.99951L13%200.999512%22%20stroke%3D%22%23606060%22%20stroke-width%3D%221.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%;
+  background-size: .65em auto;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #e5e7eb; /* gray-200 color from Tailwind CSS */
+  border-radius: 5px;
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 52px; /* Width of the custom SVG */
+  height: 36px; /* Height of the custom SVG */
+  background: url('data:image/svg+xml,%3Csvg width="52" height="36" viewBox="0 0 52 36" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="52" height="36" rx="18" fill="%23AA93FF"/%3E%3Cpath d="M24 18L16 18" stroke="%2321093A"/%3E%3Cpath d="M21 13L16 18L21 23" stroke="%2321093A"/%3E%3Cpath d="M28 18L36 18" stroke="%2321093A"/%3E%3Cpath d="M31 13L36 18L31 23" stroke="%2321093A"/%3E%3C/svg%3E') no-repeat center;
+  cursor: pointer;
+  border-radius: 18px; /* Match the radius of the SVG */
+  border: none; /* Remove border for cleaner look */
+  transition: box-shadow 0.2s ease; /* Add transition for smooth shadow effect */
+}
+
+input[type='range']:hover::-webkit-slider-thumb {
+  background-color: #BBA8FF; /* btn-hovered color */
+  box-shadow: 0 0 7px #BBA8FF; /* Shadow on hover */
+}
+
+input[type='range']:focus::-webkit-slider-thumb {
+  background-color: #BBA8FF; /* btn-focused color */
+  box-shadow: 0 0 10px #BBA8FF /* Shadow on focus */
+}
+
+input[type='range']:active::-webkit-slider-thumb {
+  background-color: #9F85FF; /* btn-pressed color */
+  box-shadow: 0 0 15px #BBA8FF; /* Shadow on active/click */
+}
+
+input[type='range']:disabled::-webkit-slider-thumb {
+  background-color: #DEDEDE; /* btn-disabled color */
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 52px; /* Width of the custom SVG */
+  height: 36px; /* Height of the custom SVG */
+  background: url('data:image/svg+xml,%3Csvg width="52" height="36" viewBox="0 0 52 36" fill="none" xmlns="http://www.w3.org/2000/svg"%3E%3Crect width="52" height="36" rx="18" fill="%23AA93FF"/%3E%3Cpath d="M24 18L16 18" stroke="%2321093A"/%3E%3Cpath d="M21 13L16 18L21 23" stroke="%2321093A"/%3E%3Cpath d="M28 18L36 18" stroke="%2321093A"/%3E%3Cpath d="M31 13L36 18L31 23" stroke="%2321093A"/%3E%3C/svg%3E') no-repeat center;
+  cursor: pointer;
+  border-radius: 18px; /* Match the radius of the SVG */
+  border: none; /* Remove border for cleaner look */
+  transition: box-shadow 0.2s ease; /* Add transition for smooth shadow effect */
+}
+
+input[type='range']:hover::-moz-range-thumb {
+  background-color: #BBA8FF; /* btn-hovered color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow on hover */
+}
+
+input[type='range']:focus::-moz-range-thumb {
+  box-shadow: 0 0 0 0.5rem rgba(170, 147, 255, 0.12);
+}
+
+input[type='range']:active::-moz-range-thumb {
+  background-color: #9F85FF; /* btn-pressed color */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow on active/click */
+}
+
+input[type='range']:disabled::-moz-range-thumb {
+  background-color: #DEDEDE; /* btn-disabled color */
 }
