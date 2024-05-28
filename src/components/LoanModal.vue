@@ -1,13 +1,11 @@
 <script setup>
 import LoanForm from '@/components/LoanForm.vue';
-import { useLoanStore } from "@/stores/loanStore.js"
+import { useModal } from '@/composables/useModal.js'
 
-const loanStore = useLoanStore()
-const closeModal = () => {
-  loanStore.showLoanModal = false
-}
+const { closeModal } = useModal()
 
 </script>
+
 <template>
   <transition name="overlay">
     <div class="fixed inset-0 z-50 bg-black/50 flex justify-center items-end md:items-center">
@@ -24,7 +22,7 @@ const closeModal = () => {
         <LoanForm />
       </div>
     </div>
-</transition>
+  </transition>
 </template>
 
 <style scoped>

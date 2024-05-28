@@ -2,8 +2,10 @@
 import { ref } from 'vue';
 import * as Yup from 'yup';
 import { useLoanStore } from "@/stores/loanStore";
+import { useModal } from '@/composables/useModal.js';
 
-const loanStore = useLoanStore();
+const { closeModal } = useModal();
+let loanStore = useLoanStore();
 
 const form = ref({
   firstName: '',
@@ -56,8 +58,7 @@ const handleSubmit = () => {
   schema.validate(form.value, { abortEarly: false })
     .then(() => {
       loanStore.checkForm(form.value);
-      console.log('Form is valid', form.value);
-      // Do something with the valid form data
+      closeModal();
     })
     .catch((validationErrors) => {
       if (validationErrors.inner) {
@@ -67,7 +68,6 @@ const handleSubmit = () => {
       }
     });
 };
-
 
 const filterNumericInput = (event, fieldName) => {
   if (fieldName === 'phoneNumber' || fieldName === 'monthlyIncome') {
@@ -85,7 +85,8 @@ const filterNumericInput = (event, fieldName) => {
         @input="validateField(fieldName); filterNumericInput($event, fieldName)"
         :type="field.type"
         :id="fieldName"
-        :class="['block w-full rounded-md border px-4 py-3 text-gray-900 transition duration-150 shadow-sm hover:border-[#60378B] focus:border-2 focus:border-[#60378B] focus:outline-none peer', errors[fieldName] ? 'border-red-500' : 'border-purple-500']"
+        class="block w-full rounded-md border border-[#DEDEDE] px-4 py-3 text-gray-900 transition duration-150 shadow-sm hover:border-[#60378B] focus:border-2 focus:border-[#60378B] focus:outline-none peer"
+        :class="[errors[fieldName] ? 'border-red-500 hover:border-red-500 focus:border-red-500' : '']"
       />
       <label :for="fieldName" :class="['absolute rounded-sm left-3 px-1 transition-all duration-300 transform origin-left bg-white', 
         form[fieldName] ? 'top-0 -translate-y-2 text-xs' : 'top-3 text-base text-gray-500 peer-focus:font-medium peer-focus:top-0 peer-focus:-translate-y-2 peer-focus:text-xs',

@@ -2,8 +2,9 @@
 import TheHero from "@/components/TheHero.vue";
 import CalculatorContainer from "@/components/Calculator/CalculatorContainer.vue";
 import LoanModal from "@/components/LoanModal.vue"
-import { useLoanStore } from "@/stores/loanStore"
-const loanStore = useLoanStore()
+import { useModal } from '@/composables/useModal.js'
+
+const { visible } = useModal()
 
 </script>
 
@@ -12,5 +13,5 @@ const loanStore = useLoanStore()
     <TheHero />
     <CalculatorContainer />
   </div>
-  <LoanModal v-show="loanStore.showLoanModal"/>
+  <LoanModal v-show="visible"/>
 </template>

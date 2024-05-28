@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6">
+  <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-6 items-center pt-2">
     <div class="w-full md:w-2/3 flex flex-col space-y-2">
       <input v-model="localAmount" id="amount-range" min="300" max="7200" type="range" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" :style="rangeBackground">
-      <div class="flex items-center justify-between text-[#21093A] text-sm mt-6">
+      <div class="flex items-center justify-between text-[#21093A] text-sm translate-y-3">
         <span>300 €</span>
         <span>7,200 €</span>
       </div>

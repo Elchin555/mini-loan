@@ -24,11 +24,11 @@ const result = {
 </script>
 
 <template>
-  <div class="p-4 bg-[#FBFBF9]">
+  <div class="p-4 bg-white md:bg-secondary-bg">
     <ResultCard :result="result">
       <div class="py-3 grid grid-cols-3">
         <p class="col-span-2">Loan amount</p>
-        <p>{{ userLoanInfo?.amount }} €</p>
+        <p>{{ userLoanInfo?.amount }}</p>
       </div>
       <div class="py-3 grid grid-cols-3">
         <p class="col-span-2">Loan period</p>

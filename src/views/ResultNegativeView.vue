@@ -21,7 +21,7 @@ const result = {
 </script>
 
 <template>
-  <div class="p-4 bg-[#FBFBF9]">
+  <div class="p-4 bg-white md:bg-secondary-bg">
     <ResultCard :result="result">
       <p class="py-3 text-center opacity-75">
         In addition to your income and expenses, a number of other factors play a role in loan decisions.
