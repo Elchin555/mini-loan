@@ -4,34 +4,29 @@ import {ref} from "vue"
 
 export const useLoanStore = defineStore('loanStore', () => {
   const router = useRouter();
-  const showLoanModal = ref(false);
   const userName = ref('');
   const loanDetails = ref({});
   const formData = ref({}); 
+  const formSubmitted = ref(false);
 
   function checkLoanCalculate(amount, period, monthlyPayment) {
     if (!amount || !period || !monthlyPayment) {
-      console.log("All fields are required");
       return false;
     }
-
     loanDetails.value = {
       amount,
       period,
       monthlyPayment
     };
 
-    console.log("loanDetails", loanDetails.value);
-
     return true;
   }
 
+
   function checkForm(form) {
-    showLoanModal.value = false;
     const { firstName, lastName, email, phoneNumber, monthlyIncome } = form;
 
     if (!firstName || !lastName || !email || !phoneNumber || !monthlyIncome) {
-      console.log("All fields are required");
       return false;
     }
 
@@ -43,14 +38,13 @@ export const useLoanStore = defineStore('loanStore', () => {
       phoneNumber,
       monthlyIncome
     };
-
+    formSubmitted.value = true;
     if (monthlyIncome < 1000) {
     
       if(router){
         router.push('/result/negative');
       }
     } else {
-      console.log("positive",router)
       if(router){
         router.push('/result/positive');
       }
@@ -60,11 +54,10 @@ export const useLoanStore = defineStore('loanStore', () => {
   }
 
   return {
-    showLoanModal,
     userName,
     loanDetails,
     formData,
     checkLoanCalculate,
-    checkForm
+    checkForm,
   };
 });

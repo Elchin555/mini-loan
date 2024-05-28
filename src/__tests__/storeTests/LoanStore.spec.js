@@ -9,7 +9,6 @@ describe('loanStore', () => {
 
   it('initializes with correct values', () => {
     const store = useLoanStore();
-    expect(store.showLoanModal).toBe(false);
     expect(store.userName).toBe('');
     expect(store.loanDetails).toEqual({});
     expect(store.formData).toEqual({});

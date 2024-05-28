@@ -5,6 +5,8 @@ import PeriodInput from "@/components/Calculator/PeriodInput.vue"
 import AmountInput from "@/components/Calculator/AmountInput.vue"
 import { ref, computed } from 'vue'
 import { useLoanStore } from "@/stores/loanStore"
+import { useModal } from '@/composables/useModal.js'
+const { openModal } = useModal()
 
 const loanStore = useLoanStore()
 
@@ -23,7 +25,7 @@ const monthlyPayment = computed(() => {
 
 const calcLoan = () => {
   loanStore.checkLoanCalculate(amount.value, selectedPeriod.value, monthlyPayment.value)
-  loanStore.showLoanModal = true
+  openModal()
 }
 </script>
 
