@@ -1,8 +1,7 @@
 <script setup>
 import TheHero from "@/components/TheHero.vue";
-import CalculatorContainer from "@/components/CalculatorContainer.vue";
+import CalculatorContainer from "@/components/Calculator/CalculatorContainer.vue";
 import LoanModal from "@/components/LoanModal.vue"
-
 import { useLoanStore } from "@/stores/loanStore"
 const loanStore = useLoanStore()
 
@@ -13,5 +12,5 @@ const loanStore = useLoanStore()
     <TheHero />
     <CalculatorContainer />
   </div>
-  <LoanModal v-if="loanStore.showLoanModal"/>
+  <LoanModal v-show="loanStore.showLoanModal"/>
 </template>

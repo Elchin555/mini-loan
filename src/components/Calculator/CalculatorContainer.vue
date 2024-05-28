@@ -1,5 +1,5 @@
 <script setup>
-import CalculatorMain from "@/components/CalculatorMain.vue";
+import CalculatorMain from "@/components/Calculator/CalculatorMain.vue";
 
 </script>
 
